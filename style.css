@@ -1,8 +1,17 @@
 /* spacing on all sections */
+#body {
+    background-color: black;
+}
 #about, #services, #portfolio, #contact {
     margin-top: 4rem;
     padding-top: 4rem;
 }
+
+/* coloring About Me text as white */
+#aboutmedescription {
+    color: white;
+}
+
 #contact {
     padding-bottom: 4rem;
 }
@@ -33,6 +42,7 @@
 /* about section image css */
 .imageAboutPage {
     width: 100%;
+    border-radius: 50%;
 }
 
 /* services section css */
@@ -60,8 +70,8 @@
     font-size: 36px;
     cursor: pointer;
 }
-fa-github:hover,.fa-linkedin:hover {
-    color: #b62b4e;
+.fa-github:hover, .fa-linkedin:hover {
+    color: #f13232d7;
 }
 .fab {
     color: #000000;
