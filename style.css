@@ -1,5 +1,5 @@
 /* spacing on all sections */
-#about, #skills, #portfolio, #contact #favoritequotes {
+#about, #skills, #portfolio, #personalrepos {
     margin-top: 4rem;
     padding-top: 4rem;
 }
@@ -77,10 +77,14 @@ h1 {
     text-align: center;
     width: 100%;
 }
+.skillsIconSmall {
+    font-size: 45px;
+    text-align: center;
+}
 .card-title {
     text-align: center;
 }
-.card:hover .skillsIcon {
+.card:hover {
     color: #b62b4e;
 }
 .skillsText:hover {
