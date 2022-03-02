@@ -4,16 +4,21 @@
     padding-top: 4rem;
 }
 #contact {
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
 }
 
 /* color specified id and objects */
 #about, #favoritequotes {
     color: white;
 }
-body {
+#content {
     background-color: rgb(35, 35, 35);
 }
+
+body {
+    background-color: black;
+}
+
 h1 {
     color: white;
 }
