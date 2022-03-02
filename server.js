@@ -2,14 +2,15 @@ const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer')
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3301
 
 // middleware
 app.use(express.static('public'));
 app.use(express.json())
 
 app.get ('/', (req, res) => {
-    res.send('hello!')
+    res.send('hello!');
+    res.sendFile(__dirname + '/public/index.html')
 });
 
 app.post('/', (req,res) => {
@@ -25,7 +26,7 @@ app.post('/', (req,res) => {
 
     const mailOptions = {
         from: req.body.email,
-        to: '',
+        to: process.env.EMAIL_DESTINATION,
         subject: `Message from ${req.body.email}: ${req.body.subject}`,
         text: req.body.content
     }
