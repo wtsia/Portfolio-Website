@@ -1,7 +1,9 @@
 // add class navbarDark on navbar scroll, and contact form
 const header = document.querySelector('.navbar');
+// look for form in index.html
 const contactForm = document.querySelector('.contactmeform');
 
+// finds each element by ID in index.html
 let name = document.getElementById('nameform');
 let email = document.getElementById('emailform');
 let subject = document.getElementById('subjectform');
@@ -17,16 +19,18 @@ window.onscroll = function() {
     }
 }
 
-contactForm.Form.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('submit clicked');
+
     let formData = {
         name: name.value,
         email: email.value,
         subject: subject.value,
         content: content.value
     }
+
     console.log(formData);
+
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '/');
     xhr.setRequestHeader('content-type', 'application/json');
@@ -42,4 +46,6 @@ contactForm.Form.addEventListener('submit', (e) => {
             alert('something went wrong!')
         }
     }
+
+    xhr.send(JSON.stringify(formData))
 });
