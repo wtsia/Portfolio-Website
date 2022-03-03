@@ -9,10 +9,12 @@ require('dotenv').config()
 const PORT = process.env.PORT || 3301
 
 // id.
-const CLIENT_ID = process.env.clientId;
-const CLEINT_SECRET = process.env.clientSecret;
-const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = process.env.refreshToken;
+const user = process.env.USER
+const clientId = process.env.CLIENTID;
+const clientSecret = process.env.CLEINTSECRET;
+const redirectURI = 'https://developers.google.com/oauthplayground';
+const refreshToken = process.env.REFRESHTOKEN;
+const destination = process.env.DESTINATION
 
 // Token refresher
 const oAuth2Client = new google.auth.OAuth2(
