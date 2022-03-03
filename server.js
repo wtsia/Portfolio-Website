@@ -2,10 +2,25 @@
 const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer')
+const { google } = require('googleapis')
 require('dotenv').config()
 
 // port
 const PORT = process.env.PORT || 3301
+
+// id.
+const CLIENT_ID = process.env.clientId;
+const CLEINT_SECRET = process.env.clientSecret;
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+const REFRESH_TOKEN = process.env.refreshToken;
+
+// Token refresher
+const oAuth2Client = new google.auth.OAuth2(
+    CLIENT_ID,
+    CLEINT_SECRET,
+    REDIRECT_URI
+  );
+  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 // middleware
 app.use(express.static('public'));
@@ -17,6 +32,8 @@ app.get ('/', (req, res) => {
 
 app.post('/', (req,res) => {
     console.log(req.body);
+    console.log(process.env.use);
+    console.log(process.env.clientId);
 
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -25,10 +42,10 @@ app.post('/', (req,res) => {
         auth: {
             type: 'OAuth2',
             user: process.env.user,
-            clientId: '512796911201-gfqn9rhs9q2v1duqi0ic7aro85g5tt0l.apps.googleusercontent.com',
-            clientSecret: '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',
-            refreshToken: '1//04SrEqkddhfFfCgYIARAAGAQSNwF-L9Ir6yDqYEaSMLowEsypfZRUqvSph-NNAZwRL4mMO03sq_52Kt9pAHLITw4fIAJDRHaeRcQ',
-            accessToken: 'ya29.A0ARrdaM-vOTSt3Off7sMWMjB2iUK7IiQC8USPRciqiBfMo32cvuVFSpPxNSe6jNmFMCBAnwdl8l3Nr73ZFqJUsr66L412FrzXnDiaJEa1D-ogY7d7O2XuAJrk24smsSm9y-B_gDZOb2meg1VAbtPqY-SwNLKJ'
+            clientId: process.env.clientId,
+            clientSecret: process.env.clientSecret,
+            refreshToken: process.env.refreshToken,
+            accessToken: process.env.accessToken,
         }
     });
 
