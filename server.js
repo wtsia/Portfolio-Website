@@ -8,7 +8,11 @@ require('dotenv').config()
 // port
 const PORT = process.env.PORT || 3301
 
-// id.
+// middleware
+app.use(express.static('public'));
+app.use(express.json())
+
+// env variables
 const user = process.env.USER
 const clientId = process.env.CLIENTID;
 const clientSecret = process.env.CLEINTSECRET;
@@ -18,15 +22,11 @@ const destination = process.env.DESTINATION
 
 // Token refresher
 const oAuth2Client = new google.auth.OAuth2(
-    CLIENT_ID,
-    CLEINT_SECRET,
-    REDIRECT_URI
+    clientId,
+    clientSecret,
+    redirectURI
   );
-  oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
-
-// middleware
-app.use(express.static('public'));
-app.use(express.json())
+  oAuth2Client.setCredentials({ refresh_token: refreshToken });
 
 app.get ('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
@@ -34,7 +34,7 @@ app.get ('/', (req, res) => {
 
 app.post('/', (req,res) => {
     console.log(req.body);
-    console.log(process.env.use);
+    console.log(process.env.user);
     console.log(process.env.clientId);
 
     const transporter = nodemailer.createTransport({
@@ -53,8 +53,8 @@ app.post('/', (req,res) => {
 
     const mailOptions = {
         from: req.body.email,
-        to: process.env.EMAIL_DESTINATION,
-        subject: `Message from ${req.body.email}: ${req.body.subject}`,
+        to: process.env.destination,
+        subject: `Message from ${req.body.name} at ${req.body.email}: ${req.body.subject}`,
         text: req.body.content
     }
 
