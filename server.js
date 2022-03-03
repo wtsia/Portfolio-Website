@@ -29,13 +29,10 @@ const oAuth2Client = new google.auth.OAuth2(
   oAuth2Client.setCredentials({ refresh_token: refreshToken });
 
 app.get ('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(__dirname + '/index.html')
 });
 
 app.post('/', (req,res) => {
-    console.log(req.body);
-    console.log(process.env.user);
-    console.log(process.env.clientId);
 
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',

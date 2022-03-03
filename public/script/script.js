@@ -29,13 +29,11 @@ contactForm.addEventListener('submit', (e) => {
         content: content.value
     }
 
-    console.log(formData);
-
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '/');
     xhr.setRequestHeader('content-type', 'application/json');
     xhr.onload = function(){
-        console.log(xhr.responseText);
+        
         if(xhr.responseText == 'success') {
             alert('Email sent');
             name.value = '';
