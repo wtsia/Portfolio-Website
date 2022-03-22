@@ -84,6 +84,9 @@ h1 {
 .card-title {
     text-align: center;
 }
+.card-img-top {
+    height: 250px;
+}
 .card:hover {
     color: #b62b4e;
 }
