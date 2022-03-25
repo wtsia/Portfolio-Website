@@ -11,6 +11,11 @@
 #about, #favoritequotes {
     color: white;
 }
+
+#medium {
+    background: white;
+}
+
 body {
     background-color: rgb(35, 35, 35);
 }
