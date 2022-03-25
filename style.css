@@ -11,11 +11,15 @@
 #about, #favoritequotes {
     color: white;
 }
+
+#medium {
+    color: black;
+    background: white;
+    font-family: 'PT Serif', serif;
+}
+
 body {
     background-color: rgb(35, 35, 35);
-}
-h1 {
-    color: white;
 }
 
 /* make select text white */
@@ -72,7 +76,7 @@ h1 {
     cursor: pointer;
     border-radius: 10%;
 }
-.skillsIcon {
+.skillsIcon, .generalIcon {
     font-size: 90px;
     text-align: center;
     width: 100%;
@@ -84,7 +88,7 @@ h1 {
 .card-title {
     text-align: center;
 }
-.card:hover {
+.card:hover, .skillsIcon:hover, .fa-github:hover, .fa-linkedin:hover {
     color: #b62b4e;
 }
 .skillsText:hover {
@@ -96,7 +100,7 @@ h1 {
     font-size: 36px;
     cursor: pointer;
 }
-.fa-github:hover, .fa-linkedin:hover, .nav-link:hover, .navbar-brand:hover{
+.nav-link:hover, .navbar-brand:hover{
     color: grey;
 }
 .fab {
