@@ -16,6 +16,7 @@
     color: black;
     background: white;
     font-family: 'PT Serif', serif;
+    margin-top: 15%;
 }
 
 body {
@@ -28,7 +29,7 @@ body {
 }
 
 /* set default link color */
-.nav-link {
+.nav-link, a:visited {
     color:white;
 }
 .navbar-brand {
